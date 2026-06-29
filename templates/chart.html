@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sleep Analytics</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body{
+            background:#0d1117;
+            color:white;
+            font-family:Arial;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            min-height:100vh;
+            margin:0;
+        }
+
+        h1{
+            margin-top:30px;
+            color:#00e5ff;
+            text-shadow:0 0 10px #00e5ff;
+        }
+
+        .chart-card{
+            width:80%;
+            max-width:900px;
+            margin-top:30px;
+            background:#161b22;
+            padding:25px;
+            border-radius:20px;
+            box-shadow:0 0 20px rgba(0,229,255,0.2);
+        }
+
+        .nav-buttons{
+            margin-top:25px;
+            display:flex;
+            gap:15px;
+        }
+
+        .nav-buttons a{
+            text-decoration:none;
+            background:linear-gradient(45deg,#00c6ff,#0072ff);
+            color:white;
+            padding:12px 25px;
+            border-radius:30px;
+            font-weight:bold;
+        }
+
+        .nav-buttons a:hover{
+            transform:translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>😴 Sleep Trend Analysis</h1>
+
+    <div class="chart-card">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logs">Logs</a>
+    </div>
+
+    <script>
+        const labels = {{ dates | tojson | safe }};
+        const values = {{ sleep | tojson | safe }};
+
+        new Chart(
+            document.getElementById("myChart"),
+            {
+                type: "line",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Sleep Hours",
+                        data: values,
+                        tension: 0.4,
+                        borderWidth: 3,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            }
+        );
+    </script>
+
+</body>
+</html>
