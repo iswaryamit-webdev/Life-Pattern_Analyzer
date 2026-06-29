@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+
+    <style>
+
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            flex-direction:column;
+            background:black;
+            font-family:Arial;
+            color:white;
+        }
+
+        h1{
+            color:#00e5ff;
+            font-size:42px;
+            text-shadow:0 0 15px #00e5ff;
+            margin-bottom:30px;
+        }
+
+        .profile-card{
+            width:500px;
+            background:#1c1c1c;
+            border-radius:20px;
+            padding:35px;
+            box-shadow:0 0 25px rgba(0,229,255,0.4);
+        }
+
+        .info{
+            font-size:22px;
+            margin:18px 0;
+            padding:12px;
+            background:#2b2b2b;
+            border-radius:10px;
+        }
+
+        .info span{
+            color:gold;
+            font-weight:bold;
+            float:right;
+        }
+
+        .nav-buttons{
+            margin-top:30px;
+            display:flex;
+            gap:20px;
+        }
+
+        .nav-buttons a{
+            text-decoration:none;
+            background:linear-gradient(45deg,#00c6ff,#0072ff);
+            color:white;
+            padding:12px 25px;
+            border-radius:30px;
+            font-size:18px;
+            font-weight:bold;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .nav-buttons a:hover{
+            transform:translateY(-3px);
+            box-shadow:0 6px 15px rgba(0,114,255,0.7);
+        }
+
+        .footer{
+            margin-top:20px;
+            color:#888;
+            font-size:14px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>👤 My Profile</h1>
+
+    <div class="profile-card">
+
+        <div class="info">
+            👤 Username
+            <span>{{ username }}</span>
+        </div>
+
+        <div class="info">
+            📅 Total Logs
+            <span>{{ total_logs }}</span>
+        </div>
+
+        <div class="info">
+            😊 Most Common Mood
+            <span>{{ most_common_mood }}</span>
+        </div>
+
+        <div class="info">
+            🏆 Productivity Score
+            <span>{{ avg_score }}</span>
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <a href="/dashboard">🏠 Dashboard</a>
+        <a href="/logs">📋 Logs</a>
+    </div>
+
+    <p class="footer">
+        AI Powered Daily Routine Tracking System
+    </p>
+
+</body>
+</html>

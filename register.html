@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+
+    <style>
+
+        body{
+            margin:0;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:linear-gradient(135deg,#0f172a,#1e293b);
+            font-family:Arial,sans-serif;
+        }
+
+        .container{
+            background:#111827;
+            padding:40px;
+            border-radius:20px;
+            width:350px;
+            text-align:center;
+            box-shadow:0 0 25px rgba(0,255,255,0.3);
+        }
+
+        h1{
+            color:#00e5ff;
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+            color:#9ca3af;
+            margin-bottom:25px;
+        }
+
+        input{
+            width:90%;
+            padding:12px;
+            margin:10px 0;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:linear-gradient(45deg,#10b981,#059669);
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        button:hover{
+            transform:scale(1.03);
+        }
+
+        .login-link{
+            margin-top:20px;
+        }
+
+        .login-link a{
+            text-decoration:none;
+            color:#00e5ff;
+            font-weight:bold;
+        }
+
+        .login-link a:hover{
+            color:white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚀 Create Account</h1>
+
+    <p class="subtitle">
+        Join Life Pattern Analysis
+    </p>
+
+    <form method="POST">
+
+        <input type="text"
+               name="username"
+               placeholder="Choose Username"
+               required>
+
+        <input type="password"
+               name="password"
+               placeholder="Choose Password"
+               required>
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="/login">Login</a>
+    </div>
+
+</div>
+
+</body>
+</html>

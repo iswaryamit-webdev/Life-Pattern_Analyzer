@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background-color:black;
+            color:white;
+            font-family:Arial, sans-serif;
+            min-height:100vh;
+            padding:30px;
+        }
+
+        .title{
+            text-align:center;
+            color:#00e5ff;
+            font-size:40px;
+            margin-bottom:10px;
+        }
+
+        .heading{
+            text-align:center;
+            color:cornflowerblue;
+            font-size:25px;
+            margin-bottom:30px;
+        }
+
+        .card-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+            max-width:1000px;
+            margin:auto;
+        }
+
+        .card{
+            background:#1e1e1e;
+            padding:20px;
+            border-radius:12px;
+            text-align:center;
+            box-shadow:0 0 15px #00e5ff;
+        }
+
+        .card h2{
+            color:#00e5ff;
+            font-size:22px;
+            margin-bottom:10px;
+        }
+
+        .card p{
+            font-size:28px;
+            font-weight:bold;
+            color:white;
+        }
+        
+        .score-card{
+            margin-top:40px;
+            text-align:center;
+        }
+
+        .score-card h1{
+            color:#00e5ff;
+            font-size:36px;
+            margin-bottom:15px;
+        }
+
+        .score-card h2{
+            font-size:50px;
+            color:white;
+            margin-bottom:10px;
+        }
+
+        .score-card p{
+            font-size:24px;
+            color:lightgreen;
+        }
+
+        .nav-buttons{
+            display:flex;
+            justify-content:center;
+            gap:15px;
+            margin-top:30px;
+            flex-wrap:wrap;
+        }
+
+        .nav-buttons a{
+            text-decoration:none;
+            background:linear-gradient(45deg,#00c6ff,#0072ff);
+            color:white;
+            padding:12px 22px;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .nav-buttons a:hover{
+            transform:scale(1.05);
+        }
+
+        .recommendation h2{
+            text-align:center;
+            margin-top:25px;
+            color:orange;
+            font-size:30px;
+            font-weight:bold;
+        }
+        .recommendation p{
+            text-align:center;
+            color:white;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1 class="title">Your Life Routine Analysis</h1>
+
+    <div class="heading">
+        Life Pattern Analyser
+    </div>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h2>😴 Sleep</h2>
+            <p>{{ Average_Sleep }} hrs</p>
+        </div>
+
+        <div class="card">
+            <h2>📚 Study</h2>
+            <p>{{ Average_Study_hours }} hrs</p>
+        </div>
+
+        <div class="card">
+            <h2>💪 Exercise</h2>
+            <p>{{ Average_Exercise_Hours }} hrs</p>
+        </div>
+
+        <div class="card">
+            <h2>📱 Screen</h2>
+            <p>{{ Average_Screen_Time }} hrs</p>
+        </div>
+
+        <div class="card">
+            <h2>📊 Total Logs</h2>
+            <p>{{ Total_Logs }}</p>
+        </div>
+
+        <div class="card">
+            <h2>😊 Most Common Mood</h2>
+            <p>{{ Most_Common_Mood }}</p>
+        </div>
+        
+        
+    </div>
+
+    <div class="score-card">
+        <h1>AI Productivity Score</h1>
+        <h2>{{ score }}</h2>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="/">🏡 Home</a>
+        <a href="/logs">📊 Logs</a>
+        <a href="/score">🎯 Score</a>
+        <a href="/chart">📈View Sleep Chart</a>
+        <a href="/mood_chart">😊Mood Analysis</a>
+        <a href="/profile">👤My Profile</a>
+        <a href="/pdf">Download pdf report📃</a>
+    </div>
+
+
+    <div class="recommendation">
+        <h2>🧠 AI Recommendations</h2>
+        {% for item in status %}
+            <p>{{ item }}</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

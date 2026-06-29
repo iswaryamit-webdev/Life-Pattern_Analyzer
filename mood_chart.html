@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Analytics</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body{
+            background:black;
+            color:white;
+            text-align:center;
+            font-family:Arial;
+        }
+
+        h1{
+            color:#00e5ff;
+            text-shadow:0 0 10px #00e5ff;
+        }
+
+        .chart-container{
+            width:500px;
+            margin:auto;
+        }
+
+        a{
+            text-decoration:none;
+            background:linear-gradient(45deg,#00c6ff,#0072ff);
+            color:white;
+            padding:12px 25px;
+            border-radius:30px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>😊 Mood Distribution</h1>
+
+<div class="chart-container">
+    <canvas id="pieChart"></canvas>
+</div>
+
+<br>
+
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+<script>
+
+const moods = {{ moods | tojson | safe }};
+const counts = {{ counts | tojson | safe }};
+
+new Chart(
+    document.getElementById("pieChart"),
+    {
+        type: "pie",
+        data: {
+            labels: moods,
+            datasets: [{
+                data: counts
+            }]
+        }
+    }
+);
+
+</script>
+
+</body>
+</html>
